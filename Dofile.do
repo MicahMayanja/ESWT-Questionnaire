@@ -1,7 +1,3 @@
-import excel "C:\Users\micah\OneDrive\Documents\Side Work\Data Analysis\Mr Stafford PhD analysis\PCA\Results MICAH.xlsx",sheet("Sheet1") firstrow
-
-save data1, replace 
-
 use data1, clear 
 
 mdesc /*identify missing data*/
@@ -449,7 +445,7 @@ save data2, replace
 ************Regression analysis*****************
 *****KNOWLEDGE******
 
-sdtest know_mean, by(Institution) //therefore, use t-test  
+sdtest know_mean, by(Institution) 
 ttest know_mean, by(Institution) //no means difference
 ****
 
@@ -459,11 +455,11 @@ oneway know_mean Age, tabulate //no means difference
 oneway know_mean Practice_yrs, tabulate //no means difference
 ****
 
-sdtest know_mean, by(Practice_type) //therefore, use t-test 
+sdtest know_mean, by(Practice_type) 
 ttest know_mean, by(Practice_type) //no mean difference
 ****
 
-sdtest know_mean, by(Sex) //use t-test 
+sdtest know_mean, by(Sex) 
 ttest know_mean, by(Sex) //no difference 
 ****
 
@@ -479,7 +475,7 @@ hist knowresid, norm
 
 ******ATTITUDES******
 
-sdtest Attitude_mean, by(Institution) //therefore, use t-test  
+sdtest Attitude_mean, by(Institution) 
 ttest Attitude_mean, by(Institution) //no means difference
 ****
 
@@ -493,7 +489,7 @@ sdtest Attitude_mean, by(Practice_type)
 ttest Attitude_mean, by(Practice_type) //no mean difference
 ****
 
-sdtest Attitude_mean, by(Sex) //use t-test 
+sdtest Attitude_mean, by(Sex)  
 ttest Attitude_mean, by(Sex) //no difference 
 ****
 
@@ -524,7 +520,7 @@ drop if Report_ID == 1017
 
 *****PRACTICES************
 
-sdtest practice_mean, by(Institution) //therefore, use t-test  
+sdtest practice_mean, by(Institution)  
 ttest practice_mean, by(Institution) //no means difference
 ****
 
@@ -534,20 +530,14 @@ oneway practice_mean Age, tabulate //no means difference
 oneway practice_mean Practice_yrs, tabulate //no means difference
 ****
 
-sdtest practice_mean, by(Practice_type) //therefore, not use t-test 
+sdtest practice_mean, by(Practice_type) 
 tabstat practice_mean, by(Practice_type) statistics(p50 IQR)
 ranksum practice_mean, by(Practice_type)
 ****
 
-sdtest practice_mean, by(Sex) //use t-test 
+sdtest practice_mean, by(Sex) 
 ttest practice_mean, by(Sex) //no difference 
 ****
- 
-*********************************************************
-
-
-
-
 
 
 
